@@ -1,10 +1,12 @@
 import discord
 from discord.ext import commands
-import crontab
 import os
+from private_token import token
 
-token = ''
+#initalizition 
+my_token = token
 client = commands.Bot(command_prefix = '.')
+client.remove_command('help')
 
 @client.command()
 async def load(ctx, extension):
@@ -18,4 +20,4 @@ for filename in os.listdir('./cogs'):
     if filename.endswith('.py'):
         client.load_extension(f'cogs.{filename[:-3]}') #ensure extension does not load .py.py
 
-client.run(token) 
+client.run(my_token) 

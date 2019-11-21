@@ -11,15 +11,18 @@ sheet = client.open("Anime Movie Showing").sheet1
 data = sheet.get_all_records()
 
 #forming one large string to be sent once
-movies = 'Here are the weeb movies currently being played near us in the next few months!\n ---------------------------------------------------------------------------------------\n'
-repeat_item = []
+movies = 'Here are the weeb movies currently being played near us in the next few months!\n ---------------------------------------------------------------------------------------'
+repeat_item = {"Movie Title": '', "Showing Data": ''} #initial dictonary value for matching
 for item in data:
-    movies += (f'{item["Movie Title"]} is being aired on {item["Showing Date"]}.\n')
-    #repeat_item = item this for checking for duplicates
+    if repeat_item["Movie Title"] == item["Movie Title"]:
+        movies += (f' and {item["Showing Date"]}')
+    else:
+        movies += (f'\n{item["Movie Title"]} is being aired on {item["Showing Date"]}')
+    repeat_item = item
 
 class Fetch(commands.Cog):
 
-    def __init__(self, client):
+    def __init__(self,client):
         self.client = client
     
     #check if bot is online at time of deployment
@@ -30,7 +33,7 @@ class Fetch(commands.Cog):
 
     #manual command to fetch from the current sheet 
     @commands.command()
-    async def movie(self,ctx):
+    async def movies(self,ctx):
         await ctx.send(movies)
         
 def setup(client): 
