@@ -1,7 +1,6 @@
 import discord
 from discord.ext import commands
 import os
-from private_token import token
 
 #initalizition 
 my_token = token
@@ -20,4 +19,4 @@ for filename in os.listdir('./cogs'):
     if filename.endswith('.py'):
         client.load_extension(f'cogs.{filename[:-3]}') #ensure extension does not load .py.py
 
-client.run(my_token) 
+client.run(os.environ['TOKEN']) 
