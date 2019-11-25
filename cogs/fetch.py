@@ -1,11 +1,13 @@
 import discord
 from discord.ext import commands
+import os
+import json
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 
 #connecting to Google Sheets API
 scope = ["https://spreadsheets.google.com/feeds",'https://www.googleapis.com/auth/spreadsheets',"https://www.googleapis.com/auth/drive.file","https://www.googleapis.com/auth/drive"]
-creds = ServiceAccountCredentials.from_json_keyfile_name("credentials.json", scope)
+creds = ServiceAccountCredentials.from_json_keyfile_dict(json.loads(os.environ.get('CREDS')), scope)
 client = gspread.authorize(creds)
 sheet = client.open("Anime Movie Showing").sheet1
 data = sheet.get_all_records()
