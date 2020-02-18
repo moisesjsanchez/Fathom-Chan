@@ -2,7 +2,7 @@ import discord
 from discord.ext import commands
 import os
 
-# initalizition
+# initialization
 client = commands.Bot(command_prefix='.')
 client.remove_command('help')
 
