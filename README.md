@@ -46,8 +46,6 @@ Example:  `=IMPORTXML("https://www.fathomevents.com/categories/anime","//p[@clas
 ` pipenv shell ` then `pipenv install` to get all dependencies running.
 3. Start up the bot by running bot.py in your command line.
 
-### Run On Heroku (Coming Soon!)
-
 
 ## Built With
 
