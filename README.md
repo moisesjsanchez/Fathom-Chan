@@ -3,6 +3,11 @@
 
 This is a discord bot which fetches current Fathom sponsored movie events. Currently the bot used a automated google sheet to update and display current anime movies sponsored by Fathom. Down below is information about the bot and how to set up your own version of the bot for your own needs!
 
+## Update
+Now going to start working on update version since Covid-2019 is winding down and movies being annouced as well as other events. 
+
+https://github.com/moisesjsanchez/fathom-mk2
+
 ## How Set Up
 
 ### Downloading Project
